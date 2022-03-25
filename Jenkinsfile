@@ -35,6 +35,8 @@ pipeline {
 //             sh "docker push ${DOCKER_IMAGE}:${DOCKER_TAG}"
 //             sh "docker push ${DOCKER_IMAGE}:latest"
 //         }
+        sh "id"
+        sh "pwd"
         sh "docker login --username minhmd3011 --password minhmd3011"
         sh "docker push ${DOCKER_IMAGE}:${DOCKER_TAG}"
         sh "docker push ${DOCKER_IMAGE}:latest"
