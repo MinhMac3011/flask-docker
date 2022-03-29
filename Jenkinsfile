@@ -61,9 +61,8 @@ pipeline {
             agent { node {label 'master'}}
             steps {
                 withCredentials([usernamePassword(credentialsId: 'ssh-uername-passwd', usernameVariable: 'USERNAME', passwordVariable: 'PASSWORD')]) {
-                    sh "ssh minhmd@10.0.0.4 "
-                    sh "$PASSWORD"
-                    sh "'./deploy.sh'"
+                    sh "sshpass -p $PASSWORD ssh -o StrictHostKeyChecking=no minhmd@10.0.0.4 "
+					sh "'./deploy.sh'"
                 }
             }
         }
