@@ -60,7 +60,7 @@ pipeline {
         stage('deploy') {
             agent { node {label 'master'}}
             steps {
-                withCredentials([sshPassword(credentialsId: 'ssh-uername-passwd', usernameVariable: 'USERNAME', passwordVariable: 'PASSWORD')]) {
+                withCredentials([usernamePassword(credentialsId: 'ssh-uername-passwd', usernameVariable: 'USERNAME', passwordVariable: 'PASSWORD')]) {
                     sh "ssh -i $PASSWORD minhmd@10.0.0.4 './deploy.sh'"
                 }
             }
