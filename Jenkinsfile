@@ -67,7 +67,8 @@ pipeline {
 		    
 		    sshagent(['ssh-remote']) {
     			// some block
-			    sh 'ssh -o StrictHostKeyChecking=no -l root 10.0.0.11 docker run -p 5000:5000 flask-docker -d minhmd3011/flask-docker:latest'
+			    sh 'ssh -o StrictHostKeyChecking=no -l root 10.0.0.11 docker run -p 5000:5000 -d minhmd3011/flask-docker:latest'
+			    //sh 'docker run -p 5000:5000 -d minhmd3011/flask-docker:latest'
 		    }
             }
         }
